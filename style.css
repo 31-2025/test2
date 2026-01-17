@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-/* PRVI MENI */
+/* PRVI MENI (gore desno sa linkovima i ikonama) */
 .prvimeni {
     display: flex;
     justify-content: flex-end;
@@ -29,21 +29,27 @@
     border-radius: 50%;
 }
 
-/* HAMBURGER (sakriven na desktopu) */
-.hamburger {
-    display: none;
-    font-size: 28px;
-    color: #CACFD2;
-    cursor: pointer;
-    margin-left: auto;
+/* DRUGI MENI (logo + ime) */
+.drugimeni img {
+    width: 70px;
+    height: 70px;
+    display: block;
+    margin: 10px auto;
 }
 
-/* GLAVNI MENI - DESKTOP */
+.drugimeni h2 {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #212F3D;
+}
+
+/* GLAVNI MENI (horizontalni linkovi ispod) */
 .glavnimeni {
     display: flex;
     justify-content: center;
-    flex-wrap: nowrap;      /* jedan red */
-    gap: 15px;
+    flex-wrap: nowrap;       /* NIKADA ne prelazi u novi red */
+    gap: 15px;               /* razmak između dugmadi */
     width: 100%;
     max-width: 1200px;
     margin: 20px auto;
@@ -51,7 +57,7 @@
 }
 
 .glavnimeni .page {
-    flex: none;             /* dugmad ne rastu */
+    flex: none;              /* dugmad ne rastu, fiksna širina */
     text-align: center;
     padding: 10px 15px;
     font-size: 20px;
@@ -59,33 +65,24 @@
     color: #212F3D;
 }
 
+/* HOVER SAMO BOJA, NIKAKVO DRHTANJE */
 .glavnimeni .page:hover {
-    color: #F8C471;         /* hover boja samo, bez animacija */
+    color: #F8C471;
 }
 
-/* RESPONSIVNO ZA TELEFON */
+/* RESPONSIVNO ZA MOBILNE UREĐAJE */
 @media (max-width: 700px) {
-    .hamburger {
-        display: block;     /* vidi se hamburger */
-    }
-
     .glavnimeni {
-        display: none;      /* sakriven meni dok ne klikne hamburger */
-        flex-direction: column;
+        flex-direction: column; /* dugmad u kolonu */
         width: 95%;
-        margin: 10px auto;
+        margin: 20px auto;
         gap: 5px;
         padding: 0;
     }
 
-    .glavnimeni.active {
-        display: flex;      /* pojavi se kada klikne hamburger */
-    }
-
     .glavnimeni .page {
-        width: 100%;
-        text-align: center;
-        padding: 12px 0;
+        width: 100%;          /* pune širinu ekrana */
         font-size: 18px;
+        padding: 12px 0;
     }
 }
