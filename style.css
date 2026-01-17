@@ -5,59 +5,37 @@
     box-sizing: border-box;
 }
 
-/* Opšti stilovi */
-body {
-    font-family: monaco, Arial, Helvetica, sans-serif;
-    background-size: cover;
-}
-
 /* PRVI MENI (gore desno sa linkovima i ikonama) */
 .prvimeni {
     display: flex;
+    justify-content: flex-end;
     background-color: #212F3D;
     height: 60px;
-    position: relative;
-}
-
-.prvimenidesni {
-    text-align: right;
-    padding-right: 20px;
-    padding-top: 10px;
-    flex-grow: 3;
-    display: flex;
+    padding: 0 15px;
     align-items: center;
-    justify-content: flex-end;
-    gap: 15px;
-}
-
-.prvimenilevi {
-    text-align: left;
-    flex-grow: 1;
-    padding-top: 20px;
-    padding-left: 10px;
 }
 
 .prvimenidesni a {
     color: #CACFD2;
-    font-size: 15px;
     text-decoration: none;
     font-weight: bold;
+    font-size: 15px;
+    margin-left: 15px;
+    transition: 0.3s;
 }
 
 .prvimenidesni a:hover {
     color: #F8C471;
-    opacity: 80%;
     font-size: 18px;
-    transition: 400ms;
 }
 
 .prvimenidesni img {
-    height: 30px;
     width: 30px;
-    border-radius: 33%;
+    height: 30px;
+    border-radius: 50%;
 }
 
-/* DRUGI MENI (logo i ime) */
+/* DRUGI MENI (logo + ime) */
 .drugimeni img {
     width: 70px;
     height: 70px;
@@ -75,55 +53,44 @@ body {
 /* GLAVNI MENI (horizontalni linkovi ispod) */
 .glavnimeni {
     display: flex;
-    gap: 20px;
     justify-content: center;
-    flex-wrap: wrap; /* Omogućava prelazak u više redova */
-    margin: 30px auto;
-    width: 90%;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
     max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 10px; /* mali padding sa strane da ne izlazi */
 }
 
-.glavnimeni a {
-    flex-grow: 1;
+.glavnimeni .page {
+    flex: 1 1 120px;       /* fleksibilna širina, minimalno 120px */
     text-align: center;
-    padding: 10px 15px;
+    padding: 10px 5px;
     font-size: 20px;
-    color: #212F3D;
     text-decoration: none;
-    transition: 400ms;
+    color: #212F3D;
+    transition: 0.3s;
 }
 
-.glavnimeni a:hover {
+.glavnimeni .page:hover {
     color: #F8C471;
     font-size: 23px;
 }
 
 /* RESPONSIVNO ZA MOBILNE UREĐAJE */
 @media (max-width: 700px) {
-    /* Prvi meni */
-    .prvimenidesni {
-        padding-right: 10px;
-        gap: 8px;
-    }
-
-    /* Glavni meni prelazi u kolonu */
     .glavnimeni {
         flex-direction: column;
-        align-items: stretch;
+        width: 95%;
         margin: 20px auto;
-        width: 95%;          /* skoro cela širina ekrana */
-        max-width: 100%;
         gap: 5px;
+        padding: 0; /* uklanja dodatni padding */
     }
 
-    .glavnimeni a {
-        flex-grow: 0;
-        width: 100%;
-        padding-left: 0;
-        padding-top: 12px;
-        padding-bottom: 12px;
+    .glavnimeni .page {
+        flex: none;          /* ne raste */
+        width: 100%;         /* dugmad pune širinu ekrana */
         font-size: 18px;
-        text-align: center;
-        box-sizing: border-box;
+        padding: 12px 0;
     }
 }
