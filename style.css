@@ -7,11 +7,11 @@
 
 /* Opšti stilovi */
 body {
-    background-size: cover;
     font-family: monaco, Arial, Helvetica, sans-serif;
+    background-size: cover;
 }
 
-/* Prvi meni (gore desno sa linkovima i ikonama) */
+/* PRVI MENI (gore desno sa linkovima i ikonama) */
 .prvimeni {
     display: flex;
     background-color: #212F3D;
@@ -21,7 +21,7 @@ body {
 
 .prvimenidesni {
     text-align: right;
-    padding-right: 20px; /* smanjen padding za mobilne ekrane */
+    padding-right: 20px;
     padding-top: 10px;
     flex-grow: 3;
     display: flex;
@@ -57,7 +57,7 @@ body {
     border-radius: 33%;
 }
 
-/* Drugi meni (logo i ime) */
+/* DRUGI MENI (logo i ime) */
 .drugimeni img {
     width: 70px;
     height: 70px;
@@ -72,13 +72,15 @@ body {
     color: #212F3D;
 }
 
-/* Glavni meni (horizontalni linkovi ispod) */
+/* GLAVNI MENI (horizontalni linkovi ispod) */
 .glavnimeni {
     display: flex;
     gap: 20px;
     justify-content: center;
-    margin: 30px 0;
-    flex-wrap: wrap; /* omogućava prelazak u više redova */
+    flex-wrap: wrap; /* Omogućava prelazak u više redova */
+    margin: 30px auto;
+    width: 90%;
+    max-width: 1000px;
 }
 
 .glavnimeni a {
@@ -96,7 +98,7 @@ body {
     font-size: 23px;
 }
 
-/* RESPONSIVNO ZA MOBILNE */
+/* RESPONSIVNO ZA MOBILNE UREĐAJE */
 @media (max-width: 700px) {
     /* Prvi meni */
     .prvimenidesni {
@@ -108,13 +110,20 @@ body {
     .glavnimeni {
         flex-direction: column;
         align-items: stretch;
-        margin: 20px 0;
+        margin: 20px auto;
+        width: 95%;          /* skoro cela širina ekrana */
+        max-width: 100%;
+        gap: 5px;
     }
 
     .glavnimeni a {
         flex-grow: 0;
         width: 100%;
-        padding: 12px 0;
+        padding-left: 0;
+        padding-top: 12px;
+        padding-bottom: 12px;
         font-size: 18px;
+        text-align: center;
+        box-sizing: border-box;
     }
 }
