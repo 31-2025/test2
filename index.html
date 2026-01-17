@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O meni – Marko Miletić</title>
-    <link rel="stylesheet" href="style.css">
 
     <style>
         body {
@@ -121,6 +120,96 @@
                 grid-template-columns: 1fr;
             }
         }
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f2f2f2;
+}
+
+/* PRVI MENI (gore desno sa linkovima i ikonama) */
+.prvimeni {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #212F3D;
+    height: 60px;
+    padding: 0 15px;
+}
+
+.prvimenidesni a {
+    color: #CACFD2;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    margin-left: 15px;
+}
+
+.prvimenidesni img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+/* HAMBURGER - sakriven na desktopu */
+.hamburger {
+    display: none;
+    font-size: 28px;
+    color: #CACFD2;
+    cursor: pointer;
+}
+
+/* GLAVNI MENI - DESKTOP */
+.glavnimeni {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;      /* ostaje u jednom redu */
+    gap: 15px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.glavnimeni .page a {
+    text-decoration: none;
+    color: #212F3D;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px 15px;
+}
+
+.glavnimeni .page a:hover {
+    color: #F8C471; /* samo boja */
+}
+
+/* RESPONSIVNO ZA TELEFON */
+@media (max-width: 700px) {
+    .hamburger {
+        display: block;  /* vidi se hamburger */
+    }
+
+    .glavnimeni {
+        display: none;   /* sakriven dok ne klikne hamburger */
+        flex-direction: column;
+        width: 95%;
+        margin: 10px auto;
+        gap: 5px;
+    }
+
+    .glavnimeni.active {
+        display: flex;   /* pojavi se kada klikne hamburger */
+    }
+
+    .glavnimeni .page a {
+        font-size: 18px;
+        padding: 12px 0;
+    }
+}
     </style>
 </head>
 <body>
@@ -133,7 +222,7 @@
     </div>
     <div class="drugimeni">
         <img src="https://static.vecteezy.com/system/resources/previews/016/009/814/original/diamond-icon-and-diamond-drawing-vector.jpg">
-        <h2>MARKO MILETICc</h2></a>
+        <h2>MARKO MILETI</h2></a>
     </div>
         <div class="glavnimeni">
         <div class="page"><a href="index.html">O Meni</a></div>
@@ -253,6 +342,7 @@ function toggleMenu() {
 
 </body>
 </html>
+
 
 
 
