@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
+        /* Osnovni stilovi */
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
@@ -14,10 +15,15 @@
             color: #222;
         }
 
+        a {
+            text-decoration: none;
+            color: #222;
+        }
+
         .container {
             max-width: 1000px;
             margin: 25px auto;
-            background-color: #ffffff;
+            background-color: #fff;
             padding: 25px;
         }
 
@@ -74,6 +80,7 @@
             font-size: 15px;
         }
 
+        /* Info grid */
         .info-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -81,10 +88,10 @@
             font-size: 15px;
         }
 
-        /* GALERIJA */
+        /* Galerija */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
             margin-top: 10px;
         }
@@ -102,6 +109,7 @@
             text-align: center;
         }
 
+        /* Footer */
         footer {
             margin-top: 30px;
             padding-top: 15px;
@@ -111,7 +119,27 @@
             color: #555;
         }
 
-        @media (max-width: 700px) {
+        /* Navigacija (primer tvoje "glavnimeni") */
+        .glavnimeni {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .glavnimeni .page {
+            background-color: #ddd;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .glavnimeni .page:hover {
+            background-color: #bbb;
+        }
+
+        /* Responsivni dizajn */
+        @media (max-width: 768px) {
             .header {
                 flex-direction: column;
                 align-items: flex-start;
@@ -120,21 +148,20 @@
             .info-grid {
                 grid-template-columns: 1fr;
             }
+
+            .glavnimeni {
+                flex-direction: column;
+            }
+
+            .gallery-item img {
+                height: 140px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="prvimeni">
-        <div class="prvimenidesni">
-        <a href="Kontakt.html">Kontakt</a>
-        <a href="https://www.instagram.com/"><img src="data:image/png;base64,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"></a>
-        </div>
-    </div>
-    <div class="drugimeni">
-        <img src="https://static.vecteezy.com/system/resources/previews/016/009/814/original/diamond-icon-and-diamond-drawing-vector.jpg">
-        <h2>MARKO MILETIC</h2></a>
-    </div>
-        <div class="glavnimeni">
+    <!-- Navigacija -->
+    <div class="glavnimeni">
         <div class="page"><a href="index.html">O Meni</a></div>
         <div class="page"><a href="domaci.html">Domaci zadaci</a></div>
         <div class="page"><a>Mape uma</a></div>
@@ -142,106 +169,102 @@
         <div class="page"><a href="anketa.html">Google anketa</a></div>
         <div class="page"><a>Video predstavljanje</a></div>
     </div>
-<div class="container">
-    
-    <!-- HEADER -->
-    <div class="header">
-        <!-- Zameni sliku kasnije -->
-        <img src="ja.jpg" alt="Profilna slika">
-        <div>
-            <h1>Marko Miletić</h1>
-            <p><strong>Student informacionih tehnologija</strong></p>
-            <p>Fakultet tehničkih nauka, Čačak – 1. godina</p>
-        </div>
-    </div>
 
-    <!-- OSNOVNI PODACI -->
-    <div class="section">
-        <h2>Osnovni podaci</h2>
-        <div class="info-grid">
-            <p><strong>Ime i prezime:</strong> Marko Miletić</p>
-            <p><strong>Datum rođenja:</strong> 14.04.2006.</p>
-            <p><strong>Mesto:</strong> Čačak</p>
-            <p><strong>Studijski program:</strong> Informacione tehnologije</p>
-            <p><strong>Vrsta studija:</strong> Akademske</p>
-            <p><strong>Godina studija:</strong> Prva godina</p>
-        </div>
-    </div>
-
-    <!-- O MENI -->
-    <div class="section">
-        <h2>O meni</h2>
-        <p>
-            Završio sam srednju tehničku školu u Čačku, smer informacione tehnologije,
-            gde sam stekao osnovna znanja iz oblasti računara, softvera i informacionih sistema.
-            Trenutno sam student prve godine akademskih studija informacionih tehnologija
-            na Fakultetu tehničkih nauka u Čačku.
-        </p>
-        <p>
-            Trenutno sam fokusiran na studije i učenje, dok sam tokom letnjeg perioda radio
-            u firmi <strong>PS Fashion</strong>, gde sam stekao radne navike, odgovornost
-            i iskustvo rada u timu.
-        </p>
-    </div>
-
-    <!-- GALERIJA -->
-    <div class="section">
-        <h2>Obrazovanje – galerija</h2>
-
-        <div class="gallery">
-            <div class="gallery-item">
-                <img src="https://www.ftn.kg.ac.rs/docs/slike/images/FTN%20Cacak-zgrada%20800%20600.jpg" alt="FTN Čačak">
-                <p>Fakultet tehničkih nauka, Čačak</p>
-            </div>
-
-            <div class="gallery-item">
-                <img src="https://www.ftn.kg.ac.rs/images/IMG-6b750bad12fbeb9aa780aba1279e16ab-V.jpg" alt="FTN Čačak">
-                <p>FTN Čačak – zgrada fakulteta</p>
-            </div>
-
-            <div class="gallery-item">
-                <img src="https://tehnickacacak.edu.rs/images/skola-pocetna.webp" alt="Tehnička škola Čačak">
-                <p>Tehnička škola, Čačak</p>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <img src="ja.jpg" alt="Profilna slika">
+            <div>
+                <h1>Marko Miletić</h1>
+                <p><strong>Student informacionih tehnologija</strong></p>
+                <p>Fakultet tehničkih nauka, Čačak – 1. godina</p>
             </div>
         </div>
+
+        <!-- OSNOVNI PODACI -->
+        <div class="section">
+            <h2>Osnovni podaci</h2>
+            <div class="info-grid">
+                <p><strong>Ime i prezime:</strong> Marko Miletić</p>
+                <p><strong>Datum rođenja:</strong> 14.04.2006.</p>
+                <p><strong>Mesto:</strong> Čačak</p>
+                <p><strong>Studijski program:</strong> Informacione tehnologije</p>
+                <p><strong>Vrsta studija:</strong> Akademske</p>
+                <p><strong>Godina studija:</strong> Prva godina</p>
+            </div>
+        </div>
+
+        <!-- O MENI -->
+        <div class="section">
+            <h2>O meni</h2>
+            <p>
+                Završio sam srednju tehničku školu u Čačku, smer informacione tehnologije,
+                gde sam stekao osnovna znanja iz oblasti računara, softvera i informacionih sistema.
+                Trenutno sam student prve godine akademskih studija informacionih tehnologija
+                na Fakultetu tehničkih nauka u Čačku.
+            </p>
+            <p>
+                Trenutno sam fokusiran na studije i učenje, dok sam tokom letnjeg perioda radio
+                u firmi <strong>PS Fashion</strong>, gde sam stekao radne navike, odgovornost
+                i iskustvo rada u timu.
+            </p>
+        </div>
+
+        <!-- GALERIJA -->
+        <div class="section">
+            <h2>Obrazovanje – galerija</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://www.ftn.kg.ac.rs/docs/slike/images/FTN%20Cacak-zgrada%20800%20600.jpg" alt="FTN Čačak">
+                    <p>Fakultet tehničkih nauka, Čačak</p>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://www.ftn.kg.ac.rs/images/IMG-6b750bad12fbeb9aa780aba1279e16ab-V.jpg" alt="FTN Čačak">
+                    <p>FTN Čačak – zgrada fakulteta</p>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://tehnickacacak.edu.rs/images/skola-pocetna.webp" alt="Tehnička škola Čačak">
+                    <p>Tehnička škola, Čačak</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- INTERESOVANJA -->
+        <div class="section">
+            <h2>Interesovanja</h2>
+            <p><strong>Stručna:</strong></p>
+            <ul>
+                <li>Programiranje</li>
+                <li>Web dizajn</li>
+                <li>Rad sa savremenim IT tehnologijama</li>
+            </ul>
+
+            <p><strong>Lična:</strong></p>
+            <ul>
+                <li>Automobili i njihovo unapređenje</li>
+                <li>Računarski hardver i softver</li>
+                <li>Sklapanje računara i instalacija operativnih sistema</li>
+                <li>Moderna rep muzika</li>
+                <li>Teretana i gledanje filmova</li>
+            </ul>
+        </div>
+
+        <!-- CILJEVI -->
+        <div class="section">
+            <h2>Profesionalni ciljevi</h2>
+            <p>
+                Moj profesionalni cilj je da se u budućnosti bavim poslovima u oblasti
+                informacionih tehnologija, sa posebnim interesovanjem za programiranje
+                i web tehnologije.
+            </p>
+            <p>
+                Želim da kroz studije steknem stabilnu osnovu znanja i praktične veštine
+                koje će mi omogućiti dalje profesionalno usavršavanje i razvoj karijere
+                u IT sektoru.
+            </p>
+        </div>
     </div>
-
-    <!-- INTERESOVANJA -->
-    <div class="section">
-        <h2>Interesovanja</h2>
-
-        <p><strong>Stručna:</strong></p>
-        <ul>
-            <li>Programiranje</li>
-            <li>Web dizajn</li>
-            <li>Rad sa savremenim IT tehnologijama</li>
-        </ul>
-
-        <p><strong>Lična:</strong></p>
-        <ul>
-            <li>Automobili i njihovo unapređenje</li>
-            <li>Računarski hardver i softver</li>
-            <li>Sklapanje računara i instalacija operativnih sistema</li>
-            <li>Moderna rep muzika</li>
-            <li>Teretana i gledanje filmova</li>
-        </ul>
-    </div>
-
-    <!-- CILJEVI -->
-    <div class="section">
-        <h2>Profesionalni ciljevi</h2>
-        <p>
-            Moj profesionalni cilj je da se u budućnosti bavim poslovima u oblasti
-            informacionih tehnologija, sa posebnim interesovanjem za programiranje
-            i web tehnologije.
-        </p>
-        <p>
-            Želim da kroz studije steknem stabilnu osnovu znanja i praktične veštine
-            koje će mi omogućiti dalje profesionalno usavršavanje i razvoj karijere
-            u IT sektoru.
-        </p>
-    </div>
-
-</div>
 </body>
 </html>
