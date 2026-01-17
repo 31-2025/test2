@@ -1,4 +1,4 @@
-/* Reset */
+/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -9,10 +9,10 @@
 .prvimeni {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     background-color: #212F3D;
     height: 60px;
     padding: 0 15px;
-    align-items: center;
 }
 
 .prvimenidesni a {
@@ -21,12 +21,6 @@
     font-weight: bold;
     font-size: 15px;
     margin-left: 15px;
-    transition: 0.3s;
-}
-
-.prvimenidesni a:hover {
-    color: #F8C471;
-    font-size: 18px;
 }
 
 .prvimenidesni img {
@@ -51,33 +45,32 @@
 }
 
 /* GLAVNI MENI (horizontalni linkovi ispod) */
-/* GLAVNI MENI (horizontalni linkovi) */
 .glavnimeni {
     display: flex;
     justify-content: center;
-    flex-wrap: nowrap;     /* NIKADA ne prelazi u novi red na desktopu */
-    gap: 15px;
+    flex-wrap: nowrap;       /* NIKADA ne prelazi u novi red */
+    gap: 15px;               /* razmak između dugmadi */
     width: 100%;
-    max-width: 1200px;     /* po želji */
+    max-width: 1200px;
     margin: 20px auto;
     padding: 0 10px;
 }
 
 .glavnimeni .page {
-    flex: none;             /* dugmad NE rastu */
+    flex: none;              /* dugmad ne rastu, fiksna širina */
     text-align: center;
-    padding: 10px 15px;     /* širina dugmadi */
+    padding: 10px 15px;
     font-size: 20px;
     text-decoration: none;
     color: #212F3D;
-    transition: color 0.3s; /* samo boja na hover */
 }
 
+/* HOVER SAMO BOJA, NIKAKVO DRHTANJE */
 .glavnimeni .page:hover {
-    color: #F8C471;         /* hover boja, bez promene font-size */
+    color: #F8C471;
 }
 
-/* RESPONSIVNO ZA MOBILNE */
+/* RESPONSIVNO ZA MOBILNE UREĐAJE */
 @media (max-width: 700px) {
     .glavnimeni {
         flex-direction: column; /* dugmad u kolonu */
@@ -88,10 +81,8 @@
     }
 
     .glavnimeni .page {
-        width: 100%;         /* pune širinu ekrana */
+        width: 100%;          /* pune širinu ekrana */
         font-size: 18px;
         padding: 12px 0;
     }
 }
-
-
