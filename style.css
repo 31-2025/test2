@@ -51,46 +51,47 @@
 }
 
 /* GLAVNI MENI (horizontalni linkovi ispod) */
+/* GLAVNI MENI (horizontalni linkovi) */
 .glavnimeni {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
+    flex-wrap: nowrap;     /* NIKADA ne prelazi u novi red na desktopu */
+    gap: 15px;
     width: 100%;
-    max-width: 1000px;
+    max-width: 1200px;     /* po želji */
     margin: 20px auto;
-    padding: 0 10px; /* mali padding sa strane da ne izlazi */
+    padding: 0 10px;
 }
 
 .glavnimeni .page {
-    flex: 1 1 120px;       /* fleksibilna širina, minimalno 120px */
+    flex: none;             /* dugmad NE rastu */
     text-align: center;
-    padding: 10px 5px;
+    padding: 10px 15px;     /* širina dugmadi */
     font-size: 20px;
     text-decoration: none;
     color: #212F3D;
-    transition: 0.3s;
+    transition: color 0.3s; /* samo boja na hover */
 }
 
 .glavnimeni .page:hover {
-    color: #F8C471;
-    font-size: 23px;
+    color: #F8C471;         /* hover boja, bez promene font-size */
 }
 
-/* RESPONSIVNO ZA MOBILNE UREĐAJE */
+/* RESPONSIVNO ZA MOBILNE */
 @media (max-width: 700px) {
     .glavnimeni {
-        flex-direction: column;
+        flex-direction: column; /* dugmad u kolonu */
         width: 95%;
         margin: 20px auto;
         gap: 5px;
-        padding: 0; /* uklanja dodatni padding */
+        padding: 0;
     }
 
     .glavnimeni .page {
-        flex: none;          /* ne raste */
-        width: 100%;         /* dugmad pune širinu ekrana */
+        width: 100%;         /* pune širinu ekrana */
         font-size: 18px;
         padding: 12px 0;
     }
 }
+
+
